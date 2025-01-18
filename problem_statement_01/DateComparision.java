@@ -1,0 +1,29 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class DateComparision {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        System.out.println("Enter the date1 (yyyy-MM-dd):");
+        String inputDate1 = input.nextLine();
+
+        System.out.println("Enter the Date2 (yyyy-MM-dd):");
+        String inputDate2 = input.nextLine();
+
+        LocalDate date1 = LocalDate.parse(inputDate1, formatter);
+        LocalDate date2 = LocalDate.parse(inputDate2, formatter);
+
+        if (date1.isBefore(date2)) {
+            System.out.println("The first date is before the second date.");
+        } else if (date1.isAfter(date2)) {
+            System.out.println("The first date is after the second date.");
+        } else if (date1.isEqual(date2)) {
+            System.out.println("The first date is the same as the second date.");
+        }
+
+        input.close();
+    }
+}
